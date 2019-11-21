@@ -1,0 +1,96 @@
+<!doctype html>
+
+<!--
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// HTML file to load at application startup
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+-->
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline' 'self' 'unsafe-eval'; img-src data: 'self'; font-src data:; connect-src https://www.enceeper.com 'self'">
+    <title>Enceeper - Login</title>
+
+    <!-- Include Google fonts -->
+    <link rel="stylesheet" href="css/google-fonts.css">
+
+    <!-- Include additional CSS -->
+    <link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="css/app.css">
+    <script>
+      // Save image as base64 to load it faster
+      var base64ImgBG = ` iVBORw0KGgoAAAANSUhEUgAAAEMAAABkCAMAAADqvX3PAAAAKlBMVEUAAADX19fX
+                          19fBwcHT09PX19fW1tbT09PW1tbV1dXOzs7Ozs7BwcHV1dX5uIg2AAAADnRSTlMA
+                          PQAKH0czAAApFAAAAHys1goAAAHwSURBVHja7ZfdcuMwCEb1GUIDcd//dZuk2n5r
+                          ZzCKOzuzFzo3+XNOBAIHtQosxwi0XUw/jjh2qN1pVzV43FJwJIDLuq5tvaNmzxeE
+                          ZI5wWP/p9v0gypgGYhGH8fL28yyM7ycOJkFlJW3tZDHhRdBjIO22JR6a1BGMgTAW
+                          opvr6BC1jSB1MDWyXYfvkpDlg4iiV83lITiuoXZL+U4/ltcNq2MhogaYBWMYjYU8
+                          HHfSRdTrCIOLYImemrfz8dMO6DlVGYyFMWz3tmuGY6GgO1ikXVM51JDXurBO0nyE
+                          cyPTnvOXvmyb0hzqfV64jUUYw47Re9CZe6EbeC+M39+TcfK/gTFZuxZgOSag7aMA
+                          SwGkrQW1Y2lLwXRMx3RMx3T8Pw67FpSOcA5RCccOcTMNL05aRw7Fn2kizA7+1VNH
+                          6ENAOBgOxiIK888dHPVqh+Q/yeknzQfHkhx+nqyjT0QFzDUd2Skp53lp7PdFnEkY
+                          IhzQv/KRzJUV0QdDSON5+S14CEW0vqSTiAPWWDknCLsY0BZxnNP0L/Z9YQEO8yzn
+                          XZ2yNwfgTu7rNFgj9aamvS9eZljMTNOeoybSGNwQkvZ+3XrCU07t4HmWSBjDLBzE
+                          wdSzhMYcRPRZNYmgdjA1FyahcKQIqpKZs8N0TMd0TMd0/BvHF8n9f8tHo7HcAAAA
+                          AElFTkSuQmCC`
+      // Remove all white space
+      base64ImgBG = base64ImgBG.replace(/\s/g, '')
+
+      // Get all CSS's and append the following rule at the bottom
+      var sheet = window.document.styleSheets[window.document.styleSheets.length - 1]
+      var backgroundLight = "url(data:image/png;base64," + base64ImgBG + "), -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430))"
+      var backgroundDark  = "url(data:image/png;base64," + base64ImgBG + "), -webkit-gradient(linear, right top, left top, from(#281631), to(#430b0f))"
+
+      // Rules to apply background image to login and register
+      sheet.insertRule('.backimage {background: ' + backgroundLight + ';}', sheet.cssRules.length)
+      sheet.insertRule('.dark .backimage {background: ' + backgroundDark + ';}', sheet.cssRules.length)
+
+      // Hack to display this image faster on application startup
+      if ( global.location.search=="?background=ac3565" ) {
+        backG = 'body {background: ' + backgroundLight + ';}'
+      } else {
+        backG = 'body {background: ' + backgroundDark + ';}'
+      }
+      sheet.insertRule(backG, sheet.cssRules.length)
+    </script>
+  </head>
+  <body>
+    <!-- Include JS files -->
+    <script>
+      window.jQuery = window.$ = require('jquery');
+    </script>
+
+    <!-- Include additional JS -->
+    <script src="node_modules/materialize-css/dist/js/materialize.js"></script>
+
+    <script>
+      if (global.location.search !== "?background=ac3565") {
+        document.body.classList.add('dark')
+      }
+
+      window.app = require('./js/renderer.js')
+    </script>
+  </body>
+</html>

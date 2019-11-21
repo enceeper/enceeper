@@ -1,0 +1,88 @@
+{
+  "name": "Enceeper",
+  "version": "1.0.0",
+  "description": "Password manager using end-to-end encryption. Your secrets remain truly yours!",
+  "keywords": [
+    "enceeper",
+    "password",
+    "manager",
+    "storage",
+    "crypto",
+    "secure",
+    "encryption"
+  ],
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "fonts": "npx get-google-fonts -i 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'",
+    "build": "./build/run.sh",
+    "deploy": "./build/run.sh --deploy",
+    "sign": "rm -rf dist/SHA* && cd dist && shasum -a 512 Enceeper* source* | grep -v blockmap | grep -v snap > SHA512SUMS && gpg --detach-sign --armor -u 0x4B1D74E2734E9F87E4BCC00E1F3B5E7E40ECDEE1 --output SHA512SUMS.gpg SHA512SUMS",
+    "standard": "npx standard *.js js/*.js js/misc/*.js js/ui/*.js"
+  },
+  "homepage": "https://github.com/enceeper/enceeper#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enceeper/enceeper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/enceeper/enceeper/issues"
+  },
+  "author": {
+    "name": "Vassilis Poursalidis",
+    "email": "poursal@gmail.com"
+  },
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "electron": "^7.1.0",
+    "electron-builder": "^21.2.0",
+    "electron-notarize": "^0.2.0",
+    "get-google-fonts": "^1.2.0",
+    "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "compare-versions": "^3.5.1",
+    "electron-store": "^5.1.0",
+    "electron-updater": "^4.2.0",
+    "electron-window-state": "git+https://github.com/poursal/electron-window-state.git#feature-center-reset",
+    "enceeper-jslib": "^1.1.14",
+    "jquery": "^3.4.1",
+    "jquery-csv": "^1.0.5",
+    "materialize-css": "git+https://github.com/poursal/materialize.git#fix-build",
+    "mousetrap": "^1.6.3",
+    "safe-compare": "^1.1.4",
+    "zxcvbn": "^4.4.2"
+  },
+  "build": {
+    "appId": "com.enceeper.app",
+    "artifactName": "${productName}.${ext}",
+    "afterSign": "build/notarize.js",
+    "publish": [
+      "github"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "img/enceeper.icns",
+      "darkModeSupport": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "win": {
+      "icon": "img/enceeper.png",
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "linux": {
+      "executableName": "enceeper",
+      "synopsis": "A simple, beautiful, open source, and free cross-platform password manager",
+      "target": [
+        "AppImage",
+        "deb",
+        "tar.gz",
+        "snap"
+      ]
+    }
+  }
+}

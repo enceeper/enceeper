@@ -1,0 +1,55 @@
+<!--
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// Add/update slot modal template
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+-->
+
+<template class="template">
+  <div id="slotModal" class="generic-modal modal modal-fixed-footer" style="height: 450px;">
+    <div class="modal-content">
+      <h4>Slot details</h4>
+      <p>We do not store this password, you will need to copy it before hitting save!</p>
+      <form class="col s12" onSubmit="return app.slotConfirmed()">
+        <div class="row input-field-small">
+          <div class="input-field col s12">
+            <a href="javascript:;" tabindex="-1" class="material-icons postfix tooltipped-r" data-position="bottom" data-tooltip="Toggle visibility" onClick="app.togglePasswordVisibility(this)">visibility_off</a>
+            <input id="passwords" type="password" onFocus="app.activatePostfix(this)" onBlur="app.deactivatePostfix(this)">
+            <label for="passwords">Password</label>
+            <span id="passwords_helper" class="helper-text"></span>
+          </div>
+        </div>
+        <div class="row input-field-small">
+          <div class="swaper" style="position: absolute; left: 24px;">
+            <a class="btn teal waves-effect waves-light" onClick="app.copySlotPassword(this)">
+              <span class="valign-wrapper"><i class="material-icons">assignment</i>&nbsp;&nbsp;Copy password</span>
+            </a>
+          </div>
+          <!-- collapsible password generator -->
+          %PASSGEN_CONTENTS%
+        </div>
+        <input type="submit" class="hide" tabindex="-1" />
+      </form>
+    </div>
+    <div class="modal-footer" style="padding-right: 18px;">
+      <a class="modal-close waves-effect waves-light btn white" style="margin-right: 20px;">Cancel</a>
+      <a class="waves-effect waves-light btn teal" onClick="app.slotConfirmed()">Save</a>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,44 @@
+<!--
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// The template of single slot that belongs to a vault entry template
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+-->
+
+<template class="template">
+  <div class="row slot-row-entry" id="slotRow_%KEY_ID%_%ID%">
+    <div class="col s4" style="padding-top: 5px;">
+      <label>
+        <input id="slotStatus_%ID%" type="checkbox" class="sselector-status" onChange="app.setSlotStatus(%KEY_ID%, %ID%, this)" %checked% %disabled% />
+        <span>Status</span>
+      </label>
+    </div>
+    <div class="col s1" style="padding-top: 5px;">
+      <i id="indicatorNotif_%ID%" data-position="left" data-tooltip="%NOTIF_TOOLTIP%" class="sselector-notificon material-icons tooltipped2">%NOTIF_ICON%</i>
+    </div>
+    <div class="col s3">
+      <input id="slotNotif_%ID%" type="range" class="sselector-notif" min="0" max="2" value="%NOTIF_VALUE%" %disabled% onChange="app.setSlotNotif(%KEY_ID%, %ID%, this)" />
+    </div>
+    <div class="col s4 actions">
+      <a href="javascript:;" class="rounded right" onClick="app.deleteSlotModal(%KEY_ID%, %ID%, this)"><i class="material-icons">delete_forever</i></a>
+      <a href="javascript:;" class="rounded right %ELEM_HIDDEN%" onClick="app.editSlotModal(%KEY_ID%, %ID%)"><i class="material-icons">edit</i></a>
+      <a href="javascript:;" class="rounded right tooltipped2 %ELEM_HIDDEN%" data-position="left" data-tooltip="Copy identifier" onClick="app.copySlotIdentifier(%KEY_ID%, %ID%)"><i class="material-icons">assignment</i></a>
+    </div>
+  </div>
+</template>

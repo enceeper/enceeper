@@ -1,0 +1,457 @@
+/*
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// Enceeper App CSS
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+.inline-icon {
+   vertical-align: bottom;
+   font-size: 20px !important;
+}
+
+td, th {
+  border-radius: 0px;
+}
+
+.card-body {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+}
+
+.bodyMain {
+  background-color: white;
+}
+
+::placeholder, .caption {
+  color: #9e9e9e;
+}
+
+/** Dark mode fixes */
+.dark, .dark input, .dark textarea, .dark .sidenav li > a {
+  color: rgba(255, 255, 255, .87);
+}
+.dark .card, .bodyMain.dark, .dark .sidenav, .dark .main-body, .dark .modal, .dark .modal-footer {
+  background-color: #212121;
+}
+.dark .sidenav li:not(.active).open,
+  .dark .sidenav li.open, .dark tr.selected {
+    background-color: rgba(242, 242, 242, .25);
+}
+.dark .sidenav li > a:hover {
+  background-color: rgba(0, 0, 0, 1.0);
+}
+.dark tr {
+  border-bottom: 1px solid rgba(242, 242, 242, .42);
+}
+.dark .table.collapsible {
+  border-bottom: 1px solid rgba(242, 242, 242, .42);
+}
+.dark input:not([type]):disabled, .dark input:not([type])[readonly="readonly"],
+.dark input[type=text]:not(.browser-default):disabled,
+.dark input[type=text]:not(.browser-default)[readonly="readonly"] {
+  color: rgba(242, 242, 242, 0.42);
+  border-bottom: 1px dotted rgba(242, 242, 242, 0.42);
+}
+.dark input:not([type]):disabled + label,
+.dark input:not([type])[readonly="readonly"] + label,
+.dark input[type=text]:not(.browser-default):disabled + label,
+.dark input[type=text]:not(.browser-default)[readonly="readonly"] + label {
+  color: rgba(242, 242, 242, 0.42);
+}
+.dark [type="checkbox"] + span:not(.lever):before,
+.dark [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+  border: 2px solid #b8b8b8;
+}
+.dark [type="checkbox"]:checked + span:not(.lever):before {
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #26a69a;
+  border-bottom: 2px solid #26a69a;
+}
+.dark [type="checkbox"]:checked:disabled + span:before {
+  border-right: 2px solid rgb(158, 158, 158);
+  border-bottom: 2px solid rgb(158, 158, 158);
+}
+.dark .chips .input {
+  color: rgba(255, 255, 255, .87);
+}
+input[type=range] {
+  border: 1px solid rgba(0, 0, 0, .0);
+}
+/*
+.dark .z-depth-1, .dark nav, .dark .card-panel, .dark .card, .dark .toast, .dark .btn, .dark .btn-large, .dark .btn-small, .dark .btn-floating, .dark .dropdown-content, .dark .collapsible, .dark .sidenav {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.12), 0 1px 5px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.14), 0 3px 1px -2px rgba(255, 255, 255, 0.12), 0 1px 5px 0 rgba(255, 255, 255, 0.2);
+}
+.dark .z-depth-1-half, .dark .btn:hover, .dark .btn-large:hover, .dark .btn-small:hover, .dark .btn-floating:hover {
+  -webkit-box-shadow: 0 3px 3px 0 rgba(255, 255, 255, 0.14), 0 1px 7px 0 rgba(255, 255, 255, 0.12), 0 3px 1px -1px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 3px 3px 0 rgba(255, 255, 255, 0.14), 0 1px 7px 0 rgba(255, 255, 255, 0.12), 0 3px 1px -1px rgba(255, 255, 255, 0.2);
+}
+*/
+
+#category {
+  margin-right: 20px;
+  width: 140px;
+  text-transform: capitalize;
+}
+
+.sidenav {
+  padding-bottom: 0px;
+}
+
+.sidenav li:not(.active).open,
+  .sidenav li.open {
+    background-color: rgba(0, 0, 0, .035);
+}
+.sidenav-trigger {
+  margin: 0px !important;
+  padding: 0px 16px;
+}
+.sidenav-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.sidenav-close {
+  text-transform: capitalize;
+}
+
+/* Remove modal border and shadows, center it */
+.modal-loader, .dark .modal-loader {
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, .0);
+  top: 50% !important;
+  transform: translateY(-50%) scaleX(1) !important;
+}
+
+.modal:focus, a {
+  outline: none !important;
+}
+
+/** Prevent select and drag */
+*, *::after, *::before {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+  /*cursor: default;*/
+}
+
+/** Make the main body scroll indepanded from the sidenav */
+.main-body {
+  padding: 10px;
+  min-height: calc(100vh - 64px);
+}
+
+tr.selected {
+  background-color: rgba(242, 242, 242, .5);
+}
+
+/** Cards are used only for the login and register boxes, so center them and do small fixes */
+.card {
+  max-width: 600px;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.card-content h4 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0 0.75rem;
+}
+
+.btn.white {
+  color: #00796b;
+}
+
+/** Small fixes for forms and helper functions to assist validation */
+form div.row {
+  margin-bottom: 0px;
+}
+
+.helper-text.invalid {
+  color: #f44336;
+}
+
+.helper-text.valid {
+  color: #4caf50;
+}
+
+.input-field .postfix ~ input {
+  width: 80%;
+  width: calc(100% - 3rem);
+  margin-left: 0px;
+  margin-right: 3rem !important;
+}
+.input-field .postfix {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 2rem;
+  -webkit-transition: color .2s;
+  transition: color .2s;
+  color: rgba(0, 0, 0, .87);
+}
+.input-field .postfix.active {
+  color: #26a69a;
+}
+
+.num_badge {
+  position: relative;
+  top: -70px;
+  left: 15px;
+  background-color: #ff5722;
+  color: white;
+  padding: 3px 5px;
+  border-radius: 50%;
+  font-size: 8px;
+}
+
+.dropdown-trigger {
+  max-height: 56px;
+}
+
+/** Navbar search */
+.searchbarfix {
+  height: 56px !important;
+  color: white;
+  width: calc(100% - 8rem) !important;
+  padding-right: 45px !important;
+}
+
+input[type=search]:not(.browser-default):disabled {
+  color: white;
+}
+
+input[type=range]:disabled::-webkit-slider-thumb {
+  background: rgb(158, 158, 158);
+}
+
+.searchnavfix {
+  position: relative;
+  margin-right: 0;
+}
+
+.searchnavfix2 {
+  position: absolute;
+}
+
+#search-close {
+  padding: 0rem 1rem;
+  right: 0.5rem;
+}
+
+/** Keys table */
+.key-entries {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.key-entries td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+tr.key-row-with-slot {
+  border-bottom: none;
+}
+
+tr.slot-row {
+  border-bottom: none;
+}
+
+tr.slot-row td {
+  padding: 0px;
+}
+
+td a {
+  line-height: 16px;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+button, input, optgroup, select, textarea {
+  line-height: 2.63;
+}
+
+.text-overflow {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  padding: 5px;
+}
+
+.col.actions {
+  padding: 0px;
+  padding-left: 10px;
+}
+
+.actions a.rounded {
+  color: #009688;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.actions a.rounded:hover {
+  background-color: #bdbdbd;
+}
+
+.table.collapsible {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 0px;
+  box-shadow: none;
+}
+
+.table.collapsible li .collapsible-body {
+  border-bottom: none;
+  padding: 5px 5px 5px 5px;
+}
+
+.collapsible-body .row {
+  margin-bottom: 0px;
+}
+
+.collapsible-body p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.password {
+  padding: 6px 10px 0px 10px;
+}
+
+.key-status {
+  padding: 5px 0px 0px 16px;
+}
+
+.password-generator.collapsibleGen {
+  margin: 0px;
+  min-height: 30px;
+}
+
+.password-generator .collapsible-body {
+  border-bottom-width: 0px;
+  padding: 0 .75rem;
+}
+
+.chips.invalid {
+  border-bottom: 1px solid #F44336;
+  -webkit-box-shadow: 0 1px 0 0 #F44336;
+          box-shadow: 0 1px 0 0 #F44336;
+}
+
+.input-field-small .input-field {
+  margin-bottom: 0px;
+}
+
+.input-field-smaller .input-field {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.input-field-petit .col {
+  margin-top: 8px;
+}
+
+.input-field-petit .input-field {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#keyModal, #notifModal {
+  height: 80%;
+  max-height: 80%;
+}
+
+#spinner-modal .modal-content {
+  height: 124px;
+}
+
+/* Materialize CSS overide */
+.fixed-action-btn {
+  right: 75px;
+}
+
+@media only screen and (min-height: 800px) {
+  #keyModal {
+    height: 650px;
+    max-height: auto;
+  }
+}
+
+/**
+ * We want the Navbar to be below the sidenav. So in large screens do the following:
+ *
+ * 1. Move the navbar above the sidenav
+ * 2. Push it below the navbar (64 pixels)
+ * 3. Push the content away from the sidenav (310 pixels)
+ *
+ */
+@media only screen and (min-width: 993px) {
+  .sidenav {
+    z-index: 996;
+    top: 64px;
+  }
+
+  .sidenav-overlay {
+    z-index: 994;
+  }
+
+  .main-body {
+    padding-left: 310px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .dropdown-trigger {
+    max-height: 64px;
+  }
+
+  .num_badge {
+    top: -80px;
+  }
+
+  .searchbarfix {
+    height: 64px !important;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .hide-notes {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .searchbarfix {
+    width: calc(100% - 8rem) !important;
+  }
+}

@@ -1,0 +1,83 @@
+<!--
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// Settings modal template
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+-->
+
+<template class="template">
+  <div id="settingsModal" class="generic-modal modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Settings</h4>
+      <form class="col s12" onSubmit="return app.saveSettings()">
+
+        <div class="row input-field-smaller">
+          <div class="input-field col s12 center-align">
+            <p style="padding-bottom: 10px;">
+              <label>
+                <input name="settings.keep" type="checkbox" />
+                <span>Remember email</span>
+              </label>
+            </p>
+          </div>
+        </div>
+
+        <div class="row input-field-smaller valign-wrapper">
+          <div class="input-field col s8 right-align">
+            <p style="padding-bottom: 30px;">
+              <label>
+                <input name="settings.clipboard.clear" type="checkbox" />
+                <span>Clear clipboard after (in seconds):</span>
+              </label>
+            </p>
+          </div>
+          <div class="input-field col s3">
+            <input name="settings.clipboard.timeout" type="number" value="10" min="1" max="99999999" />
+              <span id="settings.clipboard.timeout_helper" class="helper-text"></span>
+          </div>
+          <div class="input-field col s1">
+          </div>
+        </div>
+
+        <div class="row input-field-smaller valign-wrapper">
+          <div class="input-field col s8 right-align">
+            <p style="padding-bottom: 30px;">
+              <label>
+                <input name="settings.autolock.enabled" type="checkbox" />
+                <span>Lock database after (in minutes):</span>
+              </label>
+            </p>
+          </div>
+          <div class="input-field col s3">
+            <input name="settings.autolock.timeout" type="number" value="10" min="1" max="99999999" />
+            <span id="settings.autolock.timeout_helper" class="helper-text"></span>
+          </div>
+          <div class="input-field col s1">
+          </div>
+        </div>
+
+        <input type="submit" class="hide" tabindex="-1" />
+      </form>
+    </div>
+    <div class="modal-footer" style="padding-right: 18px;">
+      <a class="modal-close waves-effect waves-light btn white" style="margin-right: 20px;">Cancel</a>
+      <a class="waves-effect waves-light btn teal" onClick="app.saveSettings()">Save</a>
+    </div>
+  </div>
+</template>

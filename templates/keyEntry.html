@@ -1,0 +1,65 @@
+<!--
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// The template of a single vault entry in the UI
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+-->
+
+<template class="template">
+  <tr id="keyRow_%ID%" class="key-row key-row-with-slot noborder" onClick="app.selectKeyRow(event, this)">
+    <td class="key-status">
+      <label>
+        <input id="keyStatus_%ID%" class="kselector-status" type="checkbox" onChange="app.setKeyStatus(%ID%, this)" %checked% %disabled% />
+        <span> </span>
+      </label>
+    </td>
+    <td class="kselector-title">%TITLE%</td>
+    <td class="kselector-username text-overflow" onDblClick="app.copyUsername(this)">%USERNAME%</td>
+    <td class="password"><i class="material-icons" onDblClick="app.copyPassword(%ID%)">vpn_key</i></td>
+    <td><div class="kselector-note text-overflow hide-notes">%NOTES%</div></td>
+    <td class="actions right-align">
+      <!-- Actions for my keys -->
+      <a href="javascript:;" class="%MINE_ACTIONS1%rounded expandButton" onClick="app.expandSlots(this)"><i class="material-icons">expand_more</i></a>
+      <a href="javascript:;" class="%MINE_ACTIONS2%rounded dropdown-trigger2" data-target="dropKeyMenu_%ID%"><i class="material-icons">more_vert</i></a>
+
+      <!-- Actions for shared keys -->
+      <a href="javascript:;" class="%SHARED_ACTIONS%rounded" onClick="app.deleteSharedKey(%ID%, this)"><i class="material-icons">delete_forever</i></a>
+
+      <!-- Drop down menu for key actions -->
+      <ul id='dropKeyMenu_%ID%' class='dropdown-content'>
+        <li><a onClick="app.addSlotModal(%ID%)"><i class="material-icons">add</i>Add slot</a></li>
+        <li><a onClick="app.editKeyModal(%ID%)"><i class="material-icons">edit</i>Edit entry</a></li>
+        <li><a onClick="app.shareModal(%ID%)"><i class="material-icons">share</i>Share entry</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li><a onClick="app.deleteMyKey(%ID%, this)"><i class="material-icons">delete_forever</i>Delete entry</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr class="key-row slot-row">
+    <td colspan="6">
+      <ul class="table collapsible">
+        <li>
+          <span class="collapsible-body">
+            %SLOT_CONTENTS%
+          </span>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</template>

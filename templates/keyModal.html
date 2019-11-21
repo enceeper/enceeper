@@ -1,0 +1,99 @@
+<!--
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// Add/edit vault entry modal template
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+-->
+
+<template class="template">
+  <div id="keyModal" class="generic-modal modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Entry details</h4>
+      <form class="col s12" onSubmit="return app.keyConfirmed()">
+        <div class="row input-field-small">
+          <div class="input-field col s6">
+            <input id="keyTitle" type="text" autocomplete="off">
+            <label for="keyTitle">Title</label>
+            <span id="keyTitle_helper" class="helper-text"></span>
+          </div>
+          <div class="input-field col s6">
+            <input id="keyUsername" type="text" autocomplete="off">
+            <label for="keyUsername">Username</label>
+            <span id="keyUsername_helper" class="helper-text"></span>
+          </div>
+        </div>
+        <div id="swapTextArea" class="row input-field-small hide" style="min-height: 83px;">
+          <div class="input-field col s12">
+            <textarea id="keyJSON" class="materialize-textarea" style="min-height: 43px; margin-bottom: 0px;"></textarea>
+            <label for="keyJSON">Text entry (JSON, config details etc)</label>
+            <span id="keyJSON_helper" class="helper-text"></span>
+          </div>
+        </div>
+        <div id="swapTextInput" class="row input-field-small">
+          <div class="input-field col s12">
+            <a href="javascript:;" tabindex="-1" class="material-icons postfix tooltipped-r" data-position="bottom" data-tooltip="Toggle visibility" onClick="app.togglePasswordVisibility(this)">visibility_off</a>
+            <input id="passwordk" type="password" onFocus="app.activatePostfix(this)" onBlur="app.deactivatePostfix(this)">
+            <label for="passwordk">Password</label>
+            <span id="passwordk_helper" class="helper-text"></span>
+          </div>
+        </div>
+        <div class="row input-field-small">
+          <div class="switch swaper" style="position: absolute; left: 24px;">
+            <label>
+              Password
+              <input id="keyPassSelector" type="checkbox" onInput="app.swapInputElements(this, 'swapTextInput', 'swapTextArea')" />
+              <span class="lever"></span>
+              Text
+            </label>
+          </div>
+          <!-- collapsible password generator -->
+          %PASSGEN_CONTENTS%
+        </div>
+        <div class="row input-field-small">
+          <div class="input-field col s12">
+            <input id="keyURL" type="text" autocomplete="off">
+            <label for="keyURL">URL</label>
+            <span id="keyURL_helper" class="helper-text"></span>
+          </div>
+        </div>
+        <div class="row input-field-small">
+          <div class="input-field col s12">
+            <textarea id="keyNotes" class="materialize-textarea"></textarea>
+            <label for="keyNotes">Notes</label>
+          </div>
+        </div>
+        <div class="row input-field-small">
+          <div class="col s2">
+            <p class="caption" style="padding-top: 11px;">Categories:</p>
+          </div>
+          <div class="col s10">
+            <div class="chips"></div>
+            <span id="chipsInfo" class="helper-text caption">To add tags, just enter your tag text and press enter. You can delete them by clicking on the close icon or by using your delete/back button.</span><br />
+            <span class="helper-text caption chips_helper"></span>
+          </div>
+        </div>
+        <input type="submit" class="hide" tabindex="-1" />
+      </form>
+    </div>
+    <div class="modal-footer" style="padding-right: 18px;">
+      <a class="modal-close waves-effect waves-light btn white" style="margin-right: 20px;">Cancel</a>
+      <a class="waves-effect waves-light btn teal" onClick="app.keyConfirmed()">Save</a>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,119 @@
+<!--
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// The vault UI (the main application interface)
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+-->
+
+<template class="template">
+  <div id="main">
+    <!-- User drop down menu from the navbar -->
+    <ul id="dropUserMenu" class="dropdown-content">
+      <li><a onClick="app.viewNotifications()">
+        <i class="material-icons">notifications</i>Notifications <span id="dropBadge" class="new badge deep-orange" data-badge-caption="">0</span>
+      </a></li>
+      <li><a onClick="app.updatePassword()">
+        <i class="material-icons">edit</i>Update password
+      </a></li>
+      <li><a onClick="app.deleteAccountModal()">
+        <i class="material-icons">delete_forever</i>Delete account
+      </a></li>
+      <li class="divider"></li>
+      <li><a onClick="app.viewPlan()">
+        <i class="material-icons">toll</i>View plan details
+      </a></li>
+      <li><a onClick="app.viewSettings()">
+        <i class="material-icons">settings</i>Settings
+      </a></li>
+      <li><a onClick="app.logout()">
+        <i class="material-icons">exit_to_app</i>Logout
+      </a></li>
+    </ul>
+
+    <!-- The navbar -->
+    <div class="navbar-fixed">
+      <nav class="teal" role="navigation">
+        <div class="nav-wrapper">
+          <div class="col s12 nav-buttons">
+            <a href="javascript:;" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="left hide-on-med-and-down" style="width: 300px;">
+              <li style="margin-top: 7px; margin-left: 125px;">
+                <span><img src="img/logo.png" srcset="img/logo.png 1x, img/logo@2x.png 2x" alt="Logo" /></span>
+              </li>
+            </ul>
+            <span id="category" class="left breadcrumb text-overflow"></span>
+            <ul class="left">
+              <li>
+                <a href="javascript:;" class="dropdown-trigger" data-target="dropUserMenu">
+                  <i class="material-icons">account_circle</i>
+                  <span id="menuBadge" class="num_badge">0</span>
+                </a>
+              </li>
+              <li class="hide-on-small-and-down">
+                <form id="navbarsearch" onSubmit="return false">
+                  <div class="searchnavfix">
+                    <div id="searchnavfix2">
+                      <div class="input-field">
+                        <input id="search" class="searchbarfix" type="search" autocomplete="off" onFocus="app.searchFocus(this)" onBlur="app.searchBlur(this)" onKeyUp="app.search(this)">
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i id="search-close" class="material-icons hide" onClick="app.clearSearch(this)">close</i>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </li>
+            </ul>
+            <ul class="right">
+              <li><a href="javascript:;" onClick="app.lock()"><i class="material-icons">lock</i></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <ul id="nav-mobile" class="sidenav sidenav-fixed">
+    </ul>
+
+    <!-- The fixed add button -->
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large teal waves-effect waves-light" onClick="app.addKeyModal()">
+        <i class="large material-icons">add</i>
+      </a>
+    </div>
+
+    <!-- The place holder for the key entries -->
+    <div class="main-body">
+      <table class="key-entries">
+        <thead>
+          <tr id="kheader">
+              <th>Status</th>
+              <th>Title</th>
+              <th>Username</th>
+              <th></th>
+              <th><div class="hide-notes">Notes</div></th>
+              <th></th>
+          </tr>
+        </thead>
+
+        <tbody id="tableEnties">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>

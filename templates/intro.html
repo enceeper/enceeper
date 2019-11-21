@@ -1,0 +1,120 @@
+<!--
+
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+//
+// The template for the login and register UI components
+//
+// Copyright (C) 2019 Vassilis Poursalidis (poursal@gmail.com)
+//
+// This program is free software: you can redistribute it and/or modify it under the terms of the
+// GNU General Public License as published by the Free Software Foundation, either version 3 of the
+// License, or (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+// even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License along with this program. If
+// not, see <https://www.gnu.org/licenses/>.
+//
+
+-->
+
+<template class="template">
+  <div id="intro" class="backimage">
+    <div id="loginform" class="card-body">
+      <div class="card">
+        <div class="card-content">
+          <h4><span id="cardTitle">Login</span>
+            <button id="changeuser" class="btn right light-blue hide" onClick="app.changeUser(this)">Change user</button>
+          </h4>
+
+          <div class="row">
+            <form class="col s12" onSubmit="return app.login()">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="text" autocomplete="off">
+                  <label for="email">Email</label>
+                  <span id="email_helper" class="helper-text"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <a href="javascript:;" tabindex="-1" class="material-icons postfix tooltipped-r" data-position="bottom" data-tooltip="Toggle visibility" onClick="app.togglePasswordVisibility(this)">visibility_off</a>
+                  <input id="password" type="password" onFocus="app.activatePostfix(this)" onBlur="app.deactivatePostfix(this)">
+                  <label for="password">Password</label>
+                  <span id="password_helper" class="helper-text"></span>
+                </div>
+              </div>
+              <input type="submit" class="hide" tabindex="-1" />
+            </form>
+          </div>
+        </div>
+        <div class="card-action right-align">
+          <div id="loginActions">
+            <span id="registerAction" class="left">
+              <span class="hide-on-small-and-down" style="padding-right: 10px;">No account yet? </span>
+              <button class="waves-effect btn white" onClick="app.showRegister()">Sign up</button>
+            </span>
+            <button class="waves-effect waves-light btn teal" onClick="app.login()">Login</button>
+          </div>
+          <div id="unlockActions" class="hide">
+            <button class="waves-effect waves-light btn teal" onClick="app.login()">Unlock</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="registerform" class="card-body hide">
+      <div class="card">
+        <div class="card-content">
+          <h4>Create account</h4>
+          <div class="row">
+            <form class="col s12" onSubmit="return app.register()">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="emailr" type="text" autocomplete="off">
+                  <label for="emailr">Email</label>
+                  <span id="emailr_helper" class="helper-text"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="passwordr" type="password" onInput="app.checkPasswordStrength(this)">
+                  <label for="passwordr">Password</label>
+                  <span id="passwordr_helper" class="helper-text"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="passwordr2" type="password" onInput="app.comparePasswords(this)" onBlur="app.comparePasswords(this)">
+                  <label for="passwordr2">Repeat password</label>
+                  <span id="passwordr2_helper" class="helper-text"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12" style="margin-top: 0px;">
+                  <label>
+                    <input id="terms" type="checkbox" />
+                    <span>I accept the <a href="javascript:;" onClick="app.openLink('https://www.enceeper.com/terms.php')">Terms of Service</a></span>
+                    <span id="terms_helper" class="helper-text"></span>
+                  </label>
+                </div>
+              </div>
+              <input type="submit" class="hide" tabindex="-1" />
+            </form>
+          </div>
+
+        </div>
+        <div class="card-action right-align">
+          <span class="left">
+            <span class="hide-on-small-and-down" style="padding-right: 10px;">Already have an account? </span>
+            <button class="waves-effect btn white" onClick="app.showLogin()">Sign in</button>
+          </span>
+          <button class="waves-effect waves-light btn teal" onClick="app.register()">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
