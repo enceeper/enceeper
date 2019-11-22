@@ -62,22 +62,7 @@ ipcRenderer.on('toggle-shortcuts', () => {
   }
 
   if (user.isLogged() && !uicommon.isModalOpen()) {
-    var title = document.getElementById('infoTitle')
-    var details = document.getElementById('infoDetails')
-    var specialKey = (process.platform === 'darwin' ? '⌘' : 'Ctrl')
-    var lines = ''
-    var footer
-
-    lines += '<tr><th>New entry</th><td>' + specialKey + ' + N</td></tr>'
-    lines += '<tr><th>Copy username*</th><td>' + specialKey + ' + B (or double click the username)</td></tr>'
-    lines += '<tr><th>Copy password*</th><td>' + specialKey + ' + D (or double click the key icon <i class="material-icons inline-icon">vpn_key</i>)</td></tr>'
-
-    footer = '<p>* For the keyboard shortcuts to work first select an entry by clicking on it.</p>'
-
-    title.innerHTML = 'Keyboard shortcuts'
-    details.innerHTML = '<table><tbody>' + lines + '</tbody></table>' + footer
-
-    $('#infoModal').modal('open')
+    uicommon.showShortcutsModal()
   }
 })
 
