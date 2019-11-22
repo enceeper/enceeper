@@ -64,7 +64,7 @@ module.exports = {
         }
         input.checked = value
       } else {
-        value = global.store.get(key) || (key === 'clipboard.timeout' ? 10000 : 600000)
+        value = global.store.get(key) || (key === 'clipboard.timeout' ? 60000 : 600000)
 
         value /= 1000
         if (key === 'autolock.timeout') {

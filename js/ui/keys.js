@@ -199,6 +199,23 @@ module.exports = {
 
     uicommon.closeSpinner()
     $('#keyModal').modal('close')
+
+    // If this is the first key in the vault and
+    // we do not have the shortcut flag set:
+    // 1. Greed the user
+    // 2. Display the shortcuts modal
+    var shortcuts = global.store.get('messages.shortcuts')
+    if (typeof shortcuts === 'undefined') {
+      shortcuts = true
+    }
+
+    if (global.enc._keys.length === 1 && shortcuts) {
+      global.store.set('messages.shortcuts', false)
+
+      uicommon.showOkMessage('Congratulations! You just created your first vault entry.')
+      uicommon.showOkMessage('Now let\'s see how you can use it.')
+      uicommon.showShortcutsModal()
+    }
   },
 
   setKeyStatus: function (keyId, target) {

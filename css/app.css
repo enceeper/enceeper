@@ -287,6 +287,11 @@ tr.slot-row td {
   padding: 0px;
 }
 
+.kselector-title {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 td a {
   line-height: 16px;
   display: inline-flex;

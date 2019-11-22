@@ -231,8 +231,9 @@ module.exports = {
       var actualUrl = keyDetails.url.replace(/'/g, '\\\'').replace(/"/g, '\\&quot;')
 
       title = '<a class="text-overflow" href="javascript:;" onClick="app.openLink(\'' + actualUrl + '\')">' + helpers.escapeHtml(keyDetails.title) + '</a>'
+      title += '<span class="text-overflow" style="font-size: 10px;">' + helpers.escapeHtml(keyDetails.url) + '</span>'
     } else {
-      title = helpers.escapeHtml(keyDetails.title)
+      title = '<span class="text-overflow" style="padding-top: 15px; padding-bottom: 15px;">' + helpers.escapeHtml(keyDetails.title) + '</span>'
     }
 
     return title

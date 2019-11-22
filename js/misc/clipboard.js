@@ -33,7 +33,7 @@ function copyPass (password) {
 // Handle clipboard and reset functionality
 function copyToClipboardAndReset (value) {
   var clipboardClear = global.store.get('clipboard.clear') || true
-  var clipboardTimeout = global.store.get('clipboard.timeout') || 10000
+  var clipboardTimeout = global.store.get('clipboard.timeout') || 60000
 
   clipboard.writeText(value)
 

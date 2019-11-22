@@ -98,33 +98,18 @@ module.exports = {
   },
 
   categoryRequired: function (chipsElem) {
-    var categoriesElem = chipsElem.parentNode
-    var inputElem = categoriesElem.getElementsByTagName('input')[0]
-    var inputHelper = categoriesElem.getElementsByClassName('chips_helper')[0]
     var values = M.Chips.getInstance(chipsElem).chipsData
-
-    // Reset element
-    chipsElem.classList.remove('invalid')
-    inputHelper.classList.remove('invalid')
-    inputHelper.innerHTML = ''
+    var categories = []
 
     if (values.length === 0) {
-      inputElem.focus()
-
-      chipsElem.classList.add('invalid')
-      inputHelper.classList.add('invalid')
-      inputHelper.innerHTML = 'You must provide at least one category.'
-
-      return null
+      categories.push('default')
     } else {
-      var categories = []
-
       for (var i = 0; i < values.length; i++) {
         categories.push(values[i].tag.toLowerCase())
       }
-
-      return categories
     }
+
+    return categories
   },
 
   checkPasswordStrength: function (target) {
