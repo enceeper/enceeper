@@ -40,11 +40,10 @@ function deleteKeyModal (keyId, target) {
 // This function is called by deleteConfirmed when the user confirms the delete
 function deleteKey (keyId, target) {
   var details = global.enc.getKeyDetails(keyId)
-  var isShared = details.shared
 
   uicommon.openSpinner(200)
 
-  if (isShared) {
+  if (details.shared) {
     global.enc.deleteSlot(keyId, details.slots[0].slot_id, function (data) {
       target.remove()
 
