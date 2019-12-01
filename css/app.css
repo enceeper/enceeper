@@ -115,9 +115,9 @@ input[type=range] {
 */
 
 #category {
-  margin-right: 20px;
-  width: 140px;
-  text-transform: capitalize;
+  margin-right: 10px;
+  width: 150px;
+  text-transform: uppercase;
 }
 
 .sidenav {
@@ -135,8 +135,8 @@ input[type=range] {
 .sidenav-trigger:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-.sidenav-close {
-  text-transform: capitalize;
+.sidenav-close::first-letter {
+  text-transform: uppercase;
 }
 
 /* Remove modal border and shadows, center it */

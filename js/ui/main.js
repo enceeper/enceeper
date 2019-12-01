@@ -243,11 +243,15 @@ module.exports = {
   prepareSlotEntry: function (keyId, slot) {
     var elemDisabled = ''
     var elemHidden = ''
+    var elemTooltip = ''
+    var shareTooltip = ''
     var notif
 
     if (slot.shared) {
       elemDisabled = 'disabled="disabled"'
       elemHidden = 'hide'
+      elemTooltip = 'tooltipped2'
+      shareTooltip = 'data-position="left" data-tooltip="Shared with ' + slot.with + '"'
     }
 
     notif = uicommon.decodeNotif(slot.notify)
@@ -258,6 +262,8 @@ module.exports = {
       .replace('%NOTIF_ICON%', notif.icon)
       .replace('%NOTIF_VALUE%', slot.notify)
       .replace(new RegExp('%disabled%', 'g'), elemDisabled)
+      .replace('%ELEM_TOOLTIP%', elemTooltip)
+      .replace('%share_tooltip%', shareTooltip)
       .replace(new RegExp('%ELEM_HIDDEN%', 'g'), elemHidden)
   },
   // --
