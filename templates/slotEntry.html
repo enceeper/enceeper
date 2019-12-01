@@ -36,7 +36,7 @@
       <input id="slotNotif_%ID%" type="range" class="sselector-notif" min="0" max="2" value="%NOTIF_VALUE%" %disabled% onChange="app.setSlotNotif(%KEY_ID%, %ID%, this)" />
     </div>
     <div class="col s4 actions">
-      <a href="javascript:;" class="rounded right" onClick="app.deleteSlotModal(%KEY_ID%, %ID%, this)"><i class="material-icons">delete_forever</i></a>
+      <a href="javascript:;" class="rounded right %ELEM_TOOLTIP%" %share_tooltip% onClick="app.deleteSlotModal(%KEY_ID%, %ID%, this)"><i class="material-icons">delete_forever</i></a>
       <a href="javascript:;" class="rounded right %ELEM_HIDDEN%" onClick="app.editSlotModal(%KEY_ID%, %ID%)"><i class="material-icons">edit</i></a>
       <a href="javascript:;" class="rounded right tooltipped2 %ELEM_HIDDEN%" data-position="left" data-tooltip="Copy identifier" onClick="app.copySlotIdentifier(%KEY_ID%, %ID%)"><i class="material-icons">assignment</i></a>
     </div>

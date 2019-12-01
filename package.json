@@ -1,6 +1,6 @@
 {
   "name": "Enceeper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Password manager using end-to-end encryption. Your secrets remain truly yours!",
   "keywords": [
     "enceeper",
@@ -29,14 +29,14 @@
     "url": "https://github.com/enceeper/enceeper/issues"
   },
   "author": {
-    "name": "Vassilis Poursalidis",
-    "email": "poursal@gmail.com"
+    "name": "OpenIT",
+    "email": "hello@enceeper.com"
   },
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "electron": "^7.1.2",
     "electron-builder": "^21.2.0",
-    "electron-notarize": "^0.2.0",
+    "electron-notarize": "^0.2.1",
     "get-google-fonts": "^1.2.1",
     "standard": "^14.3.1"
   },
@@ -45,7 +45,7 @@
     "electron-store": "^5.1.0",
     "electron-updater": "^4.2.0",
     "electron-window-state": "git+https://github.com/poursal/electron-window-state.git#feature-center-reset",
-    "enceeper-jslib": "^1.1.14",
+    "enceeper-jslib": "^1.2.1",
     "jquery": "^3.4.1",
     "jquery-csv": "^1.0.5",
     "materialize-css": "git+https://github.com/poursal/materialize.git#fix-build",
