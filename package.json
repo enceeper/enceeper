@@ -46,7 +46,7 @@
     "electron-updater": "^4.2.0",
     "electron-window-state": "git+https://github.com/poursal/electron-window-state.git#feature-center-reset",
     "enceeper-jslib": "^1.2.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-csv": "^1.0.5",
     "materialize-css": "git+https://github.com/poursal/materialize.git#fix-build",
     "mousetrap": "^1.6.3",
