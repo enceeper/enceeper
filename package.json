@@ -34,7 +34,7 @@
   },
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "electron": "^7.1.2",
+    "electron": "^18.3.7",
     "electron-builder": "^21.2.0",
     "electron-notarize": "^0.2.1",
     "get-google-fonts": "^1.2.1",
